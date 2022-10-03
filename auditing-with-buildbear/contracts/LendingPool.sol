@@ -18,8 +18,8 @@ contract LenderPool is ReentrancyGaurd {
 
     function withdraw() nonReentrant() external {
         uint256 amountToWithdraw = balances[msg.sender];
-        balances[msg.sender] = 0;
         payable(msg.sender).sendValue(amountToWithdraw);
+        balances[msg.sender] = 0;
 			
     }
 
